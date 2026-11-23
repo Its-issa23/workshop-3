@@ -39,7 +39,6 @@ Los CSV son fuentes finitas: el productor publica una fila a la vez con una paus
 | `dashboards/Happiness.pbip` | Proyecto editable de Power BI y modelo con origen PostgreSQL |
 | `reports/pipeline_verification.json` | Resultado de la prueba real del pipeline |
 | `tests/` | Contrato, preservación de bytes, reentregas y errores de predicción |
-| `docs/sustentacion.md` | Guía para explicar y demostrar el proyecto |
 
 ## Datos y decisiones de limpieza
 
@@ -181,6 +180,12 @@ docker compose exec kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server loca
 La ejecución inicial con `--demo-invalid` envió 784 mensajes: 782 observaciones y dos JSON inválidos de demostración. Resultado: 781 predicciones, 3 `INVALID_SCHEMA` (incluido el faltante histórico), cero predicciones huérfanas y cero predicciones de registros inválidos. Las pruebas de base usan esquemas temporales separados de `public`.
 
 ## Operación
+
+### Panel de Kafka
+
+Con los servicios iniciados, abrir [Kafbat UI local](http://localhost:18080). El panel se conecta al broker de este taller. En **Topics → happiness-events → Messages** se pueden inspeccionar los JSON originales; en **Consumer Groups → happiness-ml-team** se ve el lag por partición. Un lag de cero significa que el grupo ya procesó todos los mensajes disponibles. Si el consumidor finito terminó, aparecerá sin miembros activos; esto no es un fallo del broker. Para dejarlo esperando nuevos eventos, ejecutar `python kafka/consumer.py` en el entorno del proyecto.
+
+La interfaz usa la [imagen oficial de Kafbat UI](https://ui.docs.kafbat.io/overview/getting-started) y solo se publica en el equipo local, puerto 18080.
 
 `docker compose stop` detiene los servicios conservando datos. `docker compose start` los inicia de nuevo. No es necesario eliminar volúmenes para repetir una demo; una nueva ejecución del productor crea nuevos eventos. El modelo `.pkl` debe cargarse solo desde este proyecto de confianza y con versiones compatibles.
 
