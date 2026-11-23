@@ -221,3 +221,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Workshop local runtime
+.jupyter/
+.pbi/
+**/.pbi/
+*.log
+.env
+!data/raw/*.csv

@@ -1,0 +1,11 @@
+{
+  "status_counts": {
+    "VALID": 781,
+    "INVALID_SCHEMA": 3
+  },
+  "predictions": 781,
+  "orphan_predictions": 0,
+  "invalid_predictions": 0,
+  "test_mae": 0.4242088909431145,
+  "test_rmse": 0.5496792180531227
+}

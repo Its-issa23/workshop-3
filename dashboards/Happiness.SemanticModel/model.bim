@@ -1,0 +1,150 @@
+{
+  "name": "Happiness",
+  "compatibilityLevel": 1567,
+  "model": {
+    "culture": "es-CO",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "Predicciones",
+        "columns": [
+          {
+            "name": "prediction_id",
+            "dataType": "int64",
+            "sourceColumn": "prediction_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "country_name",
+            "dataType": "string",
+            "sourceColumn": "country_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "observation_year",
+            "dataType": "int64",
+            "sourceColumn": "observation_year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "actual_score",
+            "dataType": "double",
+            "sourceColumn": "actual_score",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "predicted_score",
+            "dataType": "double",
+            "sourceColumn": "predicted_score",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "prediction_error",
+            "dataType": "double",
+            "sourceColumn": "prediction_error",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "absolute_error",
+            "dataType": "double",
+            "sourceColumn": "absolute_error",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "event_time",
+            "dataType": "dateTime",
+            "sourceColumn": "event_time",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "prediction_timestamp",
+            "dataType": "dateTime",
+            "sourceColumn": "prediction_timestamp",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "evaluation_split",
+            "dataType": "string",
+            "sourceColumn": "evaluation_split",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "latency_ms",
+            "dataType": "double",
+            "sourceColumn": "latency_ms",
+            "summarizeBy": "none"
+          }
+        ],
+        "measures": [
+          {
+            "name": "Predicciones",
+            "expression": "COUNTROWS(Predicciones)",
+            "formatString": "0"
+          },
+          {
+            "name": "MAE",
+            "expression": "AVERAGE(Predicciones[absolute_error])",
+            "formatString": "0.000"
+          },
+          {
+            "name": "Error promedio",
+            "expression": "AVERAGE(Predicciones[prediction_error])",
+            "formatString": "0.000"
+          },
+          {
+            "name": "RMSE",
+            "expression": "SQRT(AVERAGEX(Predicciones,POWER(Predicciones[prediction_error],2)))",
+            "formatString": "0.000"
+          },
+          {
+            "name": "Puntaje real",
+            "expression": "AVERAGE(Predicciones[actual_score])",
+            "formatString": "0.00"
+          },
+          {
+            "name": "Puntaje predicho",
+            "expression": "AVERAGE(Predicciones[predicted_score])",
+            "formatString": "0.00"
+          },
+          {
+            "name": "MAE prueba 2019",
+            "expression": "CALCULATE([MAE],Predicciones[evaluation_split]=\"test\")",
+            "formatString": "0.000"
+          },
+          {
+            "name": "Latencia media ms",
+            "expression": "AVERAGE(Predicciones[latency_ms])",
+            "formatString": "0.0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Predicciones",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5433\", \"happiness\", [CreateNavigationProperties=false]),",
+                "    Data = Source{[Schema=\"public\",Item=\"vw_predictions\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Predicciones\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      }
+    ]
+  }
+}

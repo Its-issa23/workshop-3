@@ -1,0 +1,28 @@
+{
+  "features": [
+    "gdp",
+    "family",
+    "health",
+    "freedom",
+    "generosity",
+    "corruption"
+  ],
+  "train_years": [
+    2015,
+    2016,
+    2017,
+    2018
+  ],
+  "test_years": [
+    2019
+  ],
+  "train_rows": 626,
+  "test_rows": 156,
+  "metrics": {
+    "mae": 0.42420889094311465,
+    "rmse": 0.5496792180531228,
+    "r2": 0.7545699894821631
+  },
+  "sklearn_version": "1.9.1",
+  "model_sha256": "3c0594580177472bf9d368f1d532c9b73eae5fdb01f72a71143f572ea3bf6946"
+}
