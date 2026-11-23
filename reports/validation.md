@@ -7,6 +7,6 @@
 - Topic `happiness-events` verificado con 3 particiones y factor de replicación 1.
 - Productor real: 784 mensajes confirmados por Kafka en la primera simulación.
 - Consumidor real: 781 registros válidos, 3 inválidos, 781 predicciones, cero predicciones huérfanas.
-- Modelo Power BI PBIP/PBIR abierto correctamente en Power BI Desktop. La primera actualización requiere ingresar las credenciales locales. La validación visual con datos y las capturas quedan pendientes hasta completar esa conexión.
+- Proyecto Power BI PBIP/PBIR abierto, actualizado desde PostgreSQL y guardado en Power BI Desktop. Se revisaron las dos páginas con datos: 781 predicciones, MAE global 0.427, error firmado promedio 0.029 y MAE de prueba 2019 de 0.424. Las capturas reales están en `dashboards/screenshots/`.
 
 La evidencia cuantitativa de SQL está en `pipeline_verification.json`. Los conteos aumentarán si se repite la simulación: cada ejecución crea nuevos identificadores.

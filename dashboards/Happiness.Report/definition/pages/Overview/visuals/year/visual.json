@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "year",
   "position": {
     "x": 20,
     "y": 170,
-    "width": 220,
-    "height": 150,
     "z": 0,
+    "height": 150,
+    "width": 220,
     "tabOrder": 0
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Predicciones.observation_year",
-              "nativeQueryRef": "observation_year"
+              "nativeQueryRef": "observation_year",
+              "active": true
             }
           ]
         }

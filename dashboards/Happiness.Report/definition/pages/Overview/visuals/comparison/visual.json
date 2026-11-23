@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "comparison",
   "position": {
     "x": 770,
     "y": 170,
-    "width": 490,
-    "height": 280,
     "z": 0,
+    "height": 280,
+    "width": 490,
     "tabOrder": 0
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Predicciones.country_name",
-              "nativeQueryRef": "country_name"
+              "nativeQueryRef": "country_name",
+              "active": true
             }
           ]
         },
@@ -45,7 +46,8 @@
                 }
               },
               "queryRef": "Predicciones.Puntaje real",
-              "nativeQueryRef": "Puntaje real"
+              "nativeQueryRef": "Puntaje real",
+              "active": true
             }
           ]
         },

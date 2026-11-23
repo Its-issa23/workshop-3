@@ -34,4 +34,4 @@ El offset se confirma después de escribir en SQL. Si el proceso cae entre ambas
 - ¿Qué pasa al repetir el productor? Es una nueva simulación con nuevos event_id y aumentan los conteos.
 - ¿Power BI recibe eventos de Kafka directamente? No: consulta PostgreSQL al actualizar.
 
-Antes de entregar: revisar los notebooks, practicar la demo, guardar las capturas del informe con datos y verificar que el enlace de GitHub permita al profesor acceder.
+Antes de entregar: revisar los notebooks, practicar la demo y verificar que el enlace de GitHub permita al profesor acceder. Las capturas del informe con datos ya están incluidas en `dashboards/screenshots/`.

@@ -1,141 +1,6 @@
 {
-  "name": "Happiness",
-  "compatibilityLevel": 1567,
+  "compatibilityLevel": 1606,
   "model": {
-    "culture": "es-CO",
-    "defaultPowerBIDataSourceVersion": "powerBI_V3",
-    "sourceQueryCulture": "en-US",
-    "tables": [
-      {
-        "name": "Predicciones",
-        "columns": [
-          {
-            "name": "prediction_id",
-            "dataType": "int64",
-            "sourceColumn": "prediction_id",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "country_name",
-            "dataType": "string",
-            "sourceColumn": "country_name",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "observation_year",
-            "dataType": "int64",
-            "sourceColumn": "observation_year",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "actual_score",
-            "dataType": "double",
-            "sourceColumn": "actual_score",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "predicted_score",
-            "dataType": "double",
-            "sourceColumn": "predicted_score",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "prediction_error",
-            "dataType": "double",
-            "sourceColumn": "prediction_error",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "absolute_error",
-            "dataType": "double",
-            "sourceColumn": "absolute_error",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "event_time",
-            "dataType": "dateTime",
-            "sourceColumn": "event_time",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "prediction_timestamp",
-            "dataType": "dateTime",
-            "sourceColumn": "prediction_timestamp",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "evaluation_split",
-            "dataType": "string",
-            "sourceColumn": "evaluation_split",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "latency_ms",
-            "dataType": "double",
-            "sourceColumn": "latency_ms",
-            "summarizeBy": "none"
-          }
-        ],
-        "measures": [
-          {
-            "name": "Predicciones",
-            "expression": "COUNTROWS(Predicciones)",
-            "formatString": "0"
-          },
-          {
-            "name": "MAE",
-            "expression": "AVERAGE(Predicciones[absolute_error])",
-            "formatString": "0.000"
-          },
-          {
-            "name": "Error promedio",
-            "expression": "AVERAGE(Predicciones[prediction_error])",
-            "formatString": "0.000"
-          },
-          {
-            "name": "RMSE",
-            "expression": "SQRT(AVERAGEX(Predicciones,POWER(Predicciones[prediction_error],2)))",
-            "formatString": "0.000"
-          },
-          {
-            "name": "Puntaje real",
-            "expression": "AVERAGE(Predicciones[actual_score])",
-            "formatString": "0.00"
-          },
-          {
-            "name": "Puntaje predicho",
-            "expression": "AVERAGE(Predicciones[predicted_score])",
-            "formatString": "0.00"
-          },
-          {
-            "name": "MAE prueba 2019",
-            "expression": "CALCULATE([MAE],Predicciones[evaluation_split]=\"test\")",
-            "formatString": "0.000"
-          },
-          {
-            "name": "Latencia media ms",
-            "expression": "AVERAGE(Predicciones[latency_ms])",
-            "formatString": "0.0"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "Predicciones",
-            "mode": "import",
-            "source": {
-              "type": "m",
-              "expression": [
-                "let",
-                "    Source = PostgreSQL.Database(\"localhost:5433\", \"happiness\", [CreateNavigationProperties=false]),",
-                "    Data = Source{[Schema=\"public\",Item=\"vw_predictions\"]}[Data]",
-                "in",
-                "    Data"
-              ]
-            }
-          }
-        ]
-      }
-    ],
     "annotations": [
       {
         "name": "PBI_QueryOrder",
@@ -144,6 +9,260 @@
       {
         "name": "__PBI_TimeIntelligenceEnabled",
         "value": "0"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "es-CO",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "Predicciones",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "prediction_id",
+            "dataType": "int64",
+            "lineageTag": "bb499294-4a9a-4956-b5ec-674ddfb6247f",
+            "sourceColumn": "prediction_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "country_name",
+            "dataType": "string",
+            "lineageTag": "ac6980ff-b4a5-4f9b-98f7-ca51e0b0a625",
+            "sourceColumn": "country_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "observation_year",
+            "dataType": "int64",
+            "lineageTag": "ad57f67d-07d5-4192-9b93-691a6dd2bf2f",
+            "sourceColumn": "observation_year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "actual_score",
+            "dataType": "double",
+            "lineageTag": "a445e469-eeb4-4f23-abf6-2c6f0fe21274",
+            "sourceColumn": "actual_score",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "predicted_score",
+            "dataType": "double",
+            "lineageTag": "0f7c9f0c-7ebb-4a79-a85b-fdcf5e08b093",
+            "sourceColumn": "predicted_score",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "prediction_error",
+            "dataType": "double",
+            "lineageTag": "d2d6cba6-9690-4317-adeb-221fb654cab6",
+            "sourceColumn": "prediction_error",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "absolute_error",
+            "dataType": "double",
+            "lineageTag": "e0eaf336-48d4-479c-b429-dc34a4ff9adf",
+            "sourceColumn": "absolute_error",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "event_time",
+            "dataType": "dateTime",
+            "lineageTag": "64dda2bf-b3e8-4b67-8ccf-07358289ab7f",
+            "sourceColumn": "event_time",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "prediction_timestamp",
+            "dataType": "dateTime",
+            "lineageTag": "35a3911f-8c54-442b-bfad-fe1f58b4cbc8",
+            "sourceColumn": "prediction_timestamp",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "evaluation_split",
+            "dataType": "string",
+            "lineageTag": "995ad6e3-0903-41c1-bbf1-652483f5f835",
+            "sourceColumn": "evaluation_split",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "latency_ms",
+            "dataType": "double",
+            "lineageTag": "303b19e7-1234-4f37-a5b3-8101ba541f95",
+            "sourceColumn": "latency_ms",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "raw_event_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "7743dacd-90f5-4309-ba0d-15f761ffee2b",
+            "sourceColumn": "raw_event_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "event_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "adc6f48f-65e3-4b06-8bc6-edcf417bc787",
+            "sourceColumn": "event_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "country_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b529d17d-ae6f-4aec-b24d-a5d1d372496a",
+            "sourceColumn": "country_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "date_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "850654a7-6351-4b52-a359-5587c27d4647",
+            "sourceColumn": "date_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "model_version",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "188655ad-c70b-4a96-9cfb-f6ee67c8eece",
+            "sourceColumn": "model_version",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "full_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "fb526cd8-0510-45ee-8cec-55fbbd5efd36",
+            "sourceColumn": "full_date",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "f9f9cfd6-f6bf-4934-aaea-bc0ac0a5078f",
+        "measures": [
+          {
+            "name": "Predicciones",
+            "expression": "COUNTROWS(Predicciones)",
+            "formatString": "0",
+            "lineageTag": "bd214b3c-73d8-4e63-8c21-ac06053a39f9"
+          },
+          {
+            "name": "MAE",
+            "expression": "AVERAGE(Predicciones[absolute_error])",
+            "formatString": "0.000",
+            "lineageTag": "660ff26c-ee3c-44de-a4b0-67414ec4a275"
+          },
+          {
+            "name": "Error promedio",
+            "expression": "AVERAGE(Predicciones[prediction_error])",
+            "formatString": "0.000",
+            "lineageTag": "81f89f6b-0820-490a-84d2-1f8e0f487fac"
+          },
+          {
+            "name": "RMSE",
+            "expression": "SQRT(AVERAGEX(Predicciones,POWER(Predicciones[prediction_error],2)))",
+            "formatString": "0.000",
+            "lineageTag": "0ab6f8cd-d0fc-4a8c-b392-87a9ae0c2c33"
+          },
+          {
+            "name": "Puntaje real",
+            "expression": "AVERAGE(Predicciones[actual_score])",
+            "formatString": "0.00",
+            "lineageTag": "2dd04df6-4fe8-45d5-ae42-d0948536a5a2"
+          },
+          {
+            "name": "Puntaje predicho",
+            "expression": "AVERAGE(Predicciones[predicted_score])",
+            "formatString": "0.00",
+            "lineageTag": "1ec1022a-09d8-4367-a8de-4866069206c4"
+          },
+          {
+            "name": "MAE prueba 2019",
+            "expression": "CALCULATE([MAE],Predicciones[evaluation_split]=\"test\")",
+            "formatString": "0.000",
+            "lineageTag": "b3aca437-8114-4290-a300-54222fd954d0"
+          },
+          {
+            "name": "Latencia media ms",
+            "expression": "AVERAGE(Predicciones[latency_ms])",
+            "formatString": "0.0",
+            "lineageTag": "d7b51729-1fef-42d4-aedd-c6e5df5fcf33"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Predicciones",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5433\", \"happiness\", [CreateNavigationProperties=false]),",
+                "    Data = Source{[Schema=\"public\",Item=\"vw_predictions\"]}[Data]",
+                "in",
+                "    Data"
+              ],
+              "type": "m"
+            }
+          }
+        ]
       }
     ]
   }

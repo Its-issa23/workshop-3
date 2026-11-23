@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "stream",
   "position": {
     "x": 20,
     "y": 20,
-    "width": 1240,
-    "height": 320,
     "z": 0,
+    "height": 320,
+    "width": 1240,
     "tabOrder": 0
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Predicciones.event_time",
-              "nativeQueryRef": "event_time"
+              "nativeQueryRef": "event_time",
+              "active": true
             }
           ]
         },

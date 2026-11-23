@@ -158,6 +158,14 @@ Página 1: cantidad de predicciones, MAE, error firmado promedio, MAE de prueba 
 
 Página 2: evolución por momento de emisión UTC y tabla de trazabilidad. `prediction_error = predicted_score - actual_score`; un valor positivo indica sobreestimación. MAE evita que los errores positivos y negativos se cancelen. El tiempo de emisión corresponde a la simulación, no al año de la observación.
 
+### Capturas verificadas en Power BI Desktop
+
+Las dos páginas se actualizaron desde PostgreSQL y se guardaron con 781 predicciones. En otro computador es necesario iniciar los servicios, ejecutar la carga y configurar las credenciales locales antes de actualizar.
+
+![Indicadores y comparación de puntajes](dashboards/screenshots/01-overview.jpg)
+
+![Tendencias de emisión y trazabilidad](dashboards/screenshots/02-traceability.jpg)
+
 ## Verificación
 
 ```powershell

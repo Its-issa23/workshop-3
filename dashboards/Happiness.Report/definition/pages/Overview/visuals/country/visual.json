@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "country",
   "position": {
     "x": 20,
     "y": 510,
-    "width": 220,
-    "height": 270,
     "z": 0,
+    "height": 270,
+    "width": 220,
     "tabOrder": 0
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Predicciones.country_name",
-              "nativeQueryRef": "country_name"
+              "nativeQueryRef": "country_name",
+              "active": true
             }
           ]
         }

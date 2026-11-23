@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Happiness"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "91e25471-cb4e-4505-b34c-5f3d2e15ce73"
+  }
+}

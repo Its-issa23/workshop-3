@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "split",
   "position": {
     "x": 20,
     "y": 340,
-    "width": 220,
-    "height": 150,
     "z": 0,
+    "height": 150,
+    "width": 220,
     "tabOrder": 0
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Predicciones.evaluation_split",
-              "nativeQueryRef": "evaluation_split"
+              "nativeQueryRef": "evaluation_split",
+              "active": true
             }
           ]
         }
