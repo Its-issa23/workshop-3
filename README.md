@@ -162,9 +162,11 @@ Página 2: evolución por momento de emisión UTC y tabla de trazabilidad. `pred
 
 Las dos páginas se actualizaron desde PostgreSQL y se guardaron con 781 predicciones. En otro computador es necesario iniciar los servicios, ejecutar la carga y configurar las credenciales locales antes de actualizar.
 
-![Indicadores y comparación de puntajes](dashboards/screenshots/01-overview.jpg)
+![Indicadores y comparación de puntajes] <img width="1196" height="737" alt="image" src="https://github.com/user-attachments/assets/fcd4ebdd-26e1-4eb7-89e8-3aace4f0a676" />
 
-![Tendencias de emisión y trazabilidad](dashboards/screenshots/02-traceability.jpg)
+
+![Tendencias de emisión y trazabilidad] <img width="1190" height="732" alt="image" src="https://github.com/user-attachments/assets/9fccd4ef-a216-4df5-aebb-eb62f55e9f33" />
+
 
 ## Verificación
 
@@ -182,9 +184,3 @@ La ejecución inicial con `--demo-invalid` envió 784 mensajes: 782 observacione
 
 `docker compose stop` detiene los servicios conservando datos. `docker compose start` los inicia de nuevo. No es necesario eliminar volúmenes para repetir una demo; una nueva ejecución del productor crea nuevos eventos. El modelo `.pkl` debe cargarse solo desde este proyecto de confianza y con versiones compatibles.
 
-## Referencias
-
-- Enunciado y cinco CSV suministrados para Workshop 3 del curso ETL G01, 2026-2.
-- [Imagen Docker oficial de Apache Kafka](https://kafka.apache.org/41/getting-started/docker/).
-- [Formato de informes Power BI PBIR](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report).
-- [Modelo semántico de proyectos Power BI](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-dataset).
